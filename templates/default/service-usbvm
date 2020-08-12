@@ -1,0 +1,58 @@
+{
+  "uuid": "00000000-0000-0000-0000-000000000003",
+  "type": "usbvm",
+  "name": "USB",
+  "slot": "-1",
+  "hidden": "true",
+  "start_on_boot": "true",
+  "start_on_boot_priority": "10",
+  "shutdown-priority": "-15",
+  "hidden-in-ui": "false",
+  "measured": "true",
+  "s3-mode": "restart",
+  "image_path": "plugins\/serviceimages\/citrix.png",
+  "argo-firewall-rules": {
+    "0": "0:12222 -> myself:2222",
+    "1": "myself -> 0:7777"
+  },
+  "policies": {
+    "audio-access": "false",
+    "audio-rec": "false",
+    "cd-access": "false",
+    "cd-rec": "false",
+    "modify-vm-settings": "false"
+  },
+  "config": {
+    "notify": "dbus",
+    "debug": "true",
+    "pae": "true",
+    "acpi": "true",
+    "virt-type": "pv",
+    "apic": "true",
+    "nx": "true",
+    "argo": "true",
+    "memory": "192",
+    "display": "none",
+    "cmdline": "root=\/dev\/xvda2",
+    "kernel-extract": "0,1:\/bzImage",
+    "flask-label": "system_u:system_r:usbvm_t",
+    "pci": {
+      "0": {
+        "class": "0x0c03",
+        "force-slot": "false"
+      }
+    },
+    "disk": {
+      "0": {
+        "path": "\/storage\/disks\/usbvm.vhd",
+        "type": "vhd",
+        "mode": "r",
+        "shared": "true",
+        "device": "xvda",
+        "devtype": "disk"
+      }
+    },
+    "qemu-dm-path": ""
+  },
+  "hibernated": "false"
+}
